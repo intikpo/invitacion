@@ -16,7 +16,6 @@ svg.orn{width:200px;height:22px;color:var(--gold);display:block;margin:.8rem aut
 /* Fotos con fallback decorativo si la imagen no existe */
 .photo{background:var(--img,none) center/cover no-repeat,radial-gradient(circle at 30% 20%,var(--navy2),var(--navy) 70%);}
 .hero,.close{min-height:100svh;display:grid;place-items:center;padding:1.5rem;position:relative;color:var(--ivory);text-align:center}
-.close{min-height:90svh}
 .hero::before,.close::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,36,59,.62),rgba(20,36,59,.8))}
 .frame{position:relative;border:1px solid var(--gold);padding:4rem 1.4rem;width:min(100%,520px);outline:1px solid rgba(198,166,107,.4);outline-offset:8px;margin:12px}
 .frame .script{font-size:2.2rem}
@@ -77,7 +76,7 @@ select{font:inherit;padding:.6rem 1rem;margin-top:.5rem;background:var(--navy2);
 /* ===== ANIMACIONES ===== */
 .rv{opacity:0;transform:translate(var(--x,0),var(--y,50px)) scale(var(--s,1));transition:opacity 1.3s ease var(--d,0s),transform 1.3s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
 .rv.in{opacity:1;transform:none}
-.photo.band{clip-path:inset(0 0 100% 0);transition:clip-path 1.6s cubic-bezier(.2,.7,.2,1)}.photo.band.in{clip-path:inset(0)}
+.photo.band{opacity:0;transform:scale(.94);transition:opacity 1.4s ease,transform 1.8s cubic-bezier(.2,.7,.2,1)}.photo.band.in{opacity:1;transform:none}
 .hero.photo,.close.photo{animation:zoom 22s ease-in-out infinite alternate}
 .frame,.hero::before{animation:fade 1.6s ease both}
 .float{animation:float 7s ease-in-out infinite}.float2{animation:float 8s ease-in-out infinite reverse}
@@ -141,3 +140,14 @@ footer.close::before{display:none}
 footer.close .frame{text-align:center;border:0;outline:0;margin:0;padding:0}
 footer.close .names{color:var(--navy)}
 footer.close .date{color:#8F7440;margin-top:.8rem}
+
+.g1{transform-origin:17px 40px;animation:tost1 5s ease-in-out infinite alternate}
+.g2{transform-origin:31px 40px;animation:tost2 5s ease-in-out infinite alternate}
+.notes{transform-origin:24px 40px;animation:notes 4s ease-in-out infinite alternate}
+.conf{animation:confeti 3s ease-in-out infinite}
+@keyframes tost1{to{transform:rotate(8deg)}}
+@keyframes tost2{to{transform:rotate(-8deg)}}
+@keyframes notes{from{transform:rotate(-5deg)}to{transform:rotate(5deg) translateY(-2px)}}
+@keyframes confeti{50%{opacity:.25}}
+
+.hero,footer.close{overflow:hidden}
